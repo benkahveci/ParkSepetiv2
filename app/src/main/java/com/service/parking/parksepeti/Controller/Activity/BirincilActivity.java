@@ -15,14 +15,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.LoginActivity;
+import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity;
 import com.service.parking.parksepeti.Controller.Fragment.GoogleKayıtlıYerlerFragment;
 import com.service.parking.parksepeti.Controller.Fragment.ParkYeriKaydetFragment;
 import com.service.parking.parksepeti.Controller.Fragment.ReserveEdilenFragment;
 import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
-import com.service.parking.parksepeti.View.ActivityAnimator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -188,7 +187,7 @@ public class BirincilActivity extends AppCompatActivity {
     }
 
     void gotToLogin() {
-        startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, MobileVerifyActivity.class));
         finish();
     }
 

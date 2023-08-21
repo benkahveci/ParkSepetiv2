@@ -23,7 +23,6 @@
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.GooglePinParkYeriKiralama"/>
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.AdresSecActivity" />
 
-        <activity android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.LoginActivity" />
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity" />
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.OtpVerifyActivity" />
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıProfiliActivity" />
@@ -36,7 +35,6 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.ParkYeriPinleActivity" />
-        <activity android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.ParkBilgiDetayActivity" />
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.FiyatActivity" />
     </application>
 

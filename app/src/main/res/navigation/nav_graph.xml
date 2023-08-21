@@ -2,14 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/loginActivity">
+    android:id="@+id/nav_graph">
 
-    <activity
-        android:id="@+id/loginActivity"
-        android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.LoginActivity"
-        android:label="activity_login"
-        tools:layout="@layout/activity_login" />
     <activity
         android:id="@+id/mobileVerifyActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity"

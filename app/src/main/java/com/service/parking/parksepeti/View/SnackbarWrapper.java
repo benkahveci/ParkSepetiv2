@@ -27,11 +27,6 @@ public class SnackbarWrapper {
     private Action action;
 
     @NonNull
-    public static SnackbarWrapper make(@NonNull Context applicationContext, @NonNull CharSequence text, @Snackbar.Duration int duration) {
-        return new SnackbarWrapper(applicationContext, text, duration);
-    }
-
-    @NonNull
     public static SnackbarWrapper make(@NonNull Context applicationContext, @NonNull CharSequence text) {
         return new SnackbarWrapper(applicationContext, text);
     }
@@ -113,18 +108,6 @@ public class SnackbarWrapper {
         layoutParams.type = type;
         layoutParams.token = windowToken;
         return layoutParams;
-    }
-
-    @NonNull
-    public SnackbarWrapper setCallback(@Nullable Snackbar.Callback callback) {
-        this.externalCallback = callback;
-        return this;
-    }
-
-    @NonNull
-    public SnackbarWrapper setAction(CharSequence text, final View.OnClickListener listener) {
-        action = new Action(text, listener);
-        return this;
     }
 
     private static class Action {

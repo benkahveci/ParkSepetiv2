@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Intent;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.LoginActivity;
+import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.Services.NetworkServices;
 import com.service.parking.parksepeti.View.ActivityAnimator;
@@ -25,7 +25,7 @@ public class ParkSepeti extends Application {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() == null)
         {
-            Intent LoginIntent = new Intent(this,LoginActivity.class);
+            Intent LoginIntent = new Intent(this, MobileVerifyActivity.class);
             LoginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(LoginIntent);
         }
