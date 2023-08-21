@@ -1,11 +1,12 @@
 package com.service.parking.parksepeti.Services;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
@@ -18,21 +19,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
-import com.service.parking.parksepeti.Controller.Activity.GooglePinParkYeriKiralama;
-import com.service.parking.parksepeti.Controller.Adapters.ParkYerlerimAdapter;
-//import com.service.parking.parksepeti.Controller.Adapters.PackageAdapter;
 import com.service.parking.parksepeti.Controller.Adapters.ParkYeriSaatleriAdapter;
+import com.service.parking.parksepeti.Controller.Adapters.ParkYerlerimAdapter;
 import com.service.parking.parksepeti.Model.LocationPin;
-//import com.service.parking.parksepeti.Model.Packages;
-import com.service.parking.parksepeti.Model.ParkingBooking;
-//import com.service.parking.parksepeti.Model.Transaction;
 import com.service.parking.parksepeti.Model.UserProfile;
 import com.service.parking.parksepeti.Utils.LocationConstants;
-//import com.service.parking.parksepeti.Utils.PackageConstants;
-//import com.service.parking.parksepeti.Utils.ParkingBookingConstants;
-//import com.service.parking.parksepeti.Utils.TransactionConstants;
 import com.service.parking.parksepeti.View.SnackbarWrapper;
 
 import java.util.ArrayList;
@@ -161,58 +153,6 @@ public class NetworkServices {
 
     }
 
-    //PackagesData
-    /*public static class PackagesData {
-        static DatabaseReference mPackageRef = REF.child("packages");
-
-        public static void getPackages(List<Packages> list, PackageAdapter adapter) {
-            mPackageRef.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                    Map<String, Object> data = (Map<String, Object>) dataSnapshot.getValue();
-
-                    Log.d("ID : ",dataSnapshot.getKey());
-
-                    Packages cm = new Packages(data.get(PackageConstants.FB_package_name),data.get(PackageConstants.FB_no_of_cars),data.get(PackageConstants.FB_no_of_bike),
-                            data.get(PackageConstants.FB_package_price),data.get(PackageConstants.FB_package_status),dataSnapshot.getKey());
-                    list.add(cm);
-                    adapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s)
-                {
-
-                }
-
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot)
-                {
-                    String keyID =dataSnapshot.getKey();
-                    for(int i = 0;i<=list.size()-1;i++)
-                    {
-                        Packages object = list.get(i);
-                        if(object.getId().equals(keyID))
-                        {
-                            list.remove(object);
-                        }
-                        adapter.notifyDataSetChanged();
-                    }
-                }
-
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
-    } */
 
     public static class ParkingPin {
         static DatabaseReference mGlobalLocationPinRef = REF.child("GlobalPins");
@@ -262,25 +202,7 @@ public class NetworkServices {
 
                     LocationPin pin = dataSnapshot.getValue(LocationPin.class);
 
-//                    Log.d("ID : ",dataSnapshot.getKey());
-//
-//                    String by = pinsSnapshot.get(LocationConstants.by).toString();
-//                    String description = pinsSnapshot.get(LocationConstants.description).toString();
-//                    String price = pinsSnapshot.get(LocationConstants.price).toString();
-//                    String type = pinsSnapshot.get(LocationConstants.type).toString();
-////                    String visibility = pinsSnapshot.get(LocationConstants.visibility).toString();
-//                    String numberofspot = pinsSnapshot.get(LocationConstants.numberofspot).toString();
                     String pinkey = dataSnapshot.getKey();
-//                    Map<String,Boolean> features = (Map<String, Boolean>) pinsSnapshot.get(LocationConstants.features);
-////                    String photos;
-//                    Map<String,Double> pinloc  = (Map<String, Double>) pinsSnapshot.get(LocationConstants.pinloc);
-//                    String address = pinsSnapshot.get(LocationConstants.address).toString();
-//                    String mobile = pinsSnapshot.get(LocationConstants.mobile).toString();
-//                    String area = pinsSnapshot.get(LocationConstants.area).toString();
-//
-//                    Log.d("RANDOM :",by +" "+ description + " "+ price +" "+ type +" "+ features.toString() +" "+ pinloc.toString());
-//
-//                    LocationPin pin = new LocationPin(by,description,price,type,numberofspot,pinkey,features,pinloc,address,mobile,area);
                     pin.setPinkey(pinkey);
                     locationPinList.add(pin);
                     mySpotsAdapter.notifyDataSetChanged();
@@ -381,112 +303,6 @@ public class NetworkServices {
     }
 
 
-    //TransactionData
-    /* public static class TransactionData {
-        static DatabaseReference mGlobalTransactions = REF.child("GlobalTransaction").child("Transactions");
-        static DatabaseReference mGlobalBalance = REF.child("GlobalBalance");
-        static DatabaseReference mUserTransactions = REF.child("Users").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child("Transaction");
-
-        public static void doTransaction(Transaction transaction, Object package_or_booking_or_addbalance) {
-            Map<String,Object> transactionMap = new HashMap<>();
-
-            Map<String, String> timeStamp = ServerValue.TIMESTAMP;
-
-            transactionMap.put(TransactionConstants.amount,transaction.getAmount());
-            transactionMap.put(TransactionConstants.by,transaction.getBy());
-            transactionMap.put(TransactionConstants.forr,transaction.getForr());
-            transactionMap.put(TransactionConstants.id,transaction.getId());
-            transactionMap.put(TransactionConstants.of,transaction.getOf());
-            transactionMap.put(TransactionConstants.timeStamp, timeStamp);
-
-            String pinkey = mGlobalTransactions.push().getKey();
-
-            mGlobalTransactions.child(pinkey).setValue(transactionMap,(databaseError, databaseReference) -> {
-                if (databaseError == null) {
-                    if (transaction.getForr() == "Admin") {
-                        //add balance to globalbalance and deduct from loged in user here
-
-                        //update the global balance here(use of cloud functions)
-                        mGlobalBalance.child("Balance").addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                String globalBalance = dataSnapshot.getValue(String.class);
-                                int newGlobalBalance = Integer.parseInt(globalBalance) + Integer.parseInt(transaction.getAmount());
-                                Map<String,Object> balanceUpdate = new HashMap<>();
-                                balanceUpdate.put("Balance",""+newGlobalBalance);
-
-                                mGlobalBalance.updateChildren(balanceUpdate);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) { }
-                        });
-                        mGlobalBalance.child("Transactions").child(pinkey).setValue(pinkey);
-
-                        Packages packageToBuy = (Packages) package_or_booking_or_addbalance;
-
-                        //Updated the balance and totalSpots for logged in user
-                        int newbalance = Integer.parseInt(userProfile.Balance) - Integer.parseInt(transaction.getAmount());
-                        int newTotal_spots = Integer.parseInt(userProfile.Total_spots) + Integer.parseInt(packageToBuy.getCars_selected());
-                        Map<String,Object> balanceUpdate = new HashMap<>();
-                        balanceUpdate.put("Balance",""+newbalance);
-                        balanceUpdate.put("Total_spots",""+newTotal_spots);
-                        ProfileData.mProfileReference.updateChildren(balanceUpdate);
-
-                        mUserTransactions.child(pinkey).setValue(pinkey);
-                    } else if (transaction.getForr() == FirebaseAuth.getInstance().getCurrentUser().getUid()) {
-                        //Add balance in loged in user here
-                        //of = "Add Balance"
-                        //id = "Add Balance"
-                        int newbalance = Integer.parseInt(userProfile.Balance) + Integer.parseInt(transaction.getAmount());
-                        Map<String,Object> balanceUpdate = new HashMap<>();
-                        balanceUpdate.put("Balance",""+newbalance);
-                        ProfileData.mProfileReference.updateChildren(balanceUpdate);
-
-                        mUserTransactions.child(pinkey).setValue(pinkey);
-                    } else {
-                        //of = "Parking"
-                        //id = "parkingid"
-                        //Add or Subtract balance/earning from both the users here
-
-                        //logged in user
-                        ParkingBooking parkingBooking = (ParkingBooking) package_or_booking_or_addbalance;
-                        int newbalance = Integer.parseInt(userProfile.Balance) - Integer.parseInt(transaction.getAmount());
-                        Map<String,Object> balanceUpdate = new HashMap<>();
-                        balanceUpdate.put("Balance",""+newbalance);
-                        ProfileData.mProfileReference.updateChildren(balanceUpdate);
-
-                        //for spot holder earnings
-                        DatabaseReference spotHolder = REF.child("Users").child(transaction.getForr());
-
-                        spotHolder.child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                UserProfile spotHolderProfile = dataSnapshot.getValue(UserProfile.class);
-                                int newEarnings = Integer.parseInt(spotHolderProfile.Earnings) + Integer.parseInt(transaction.getAmount());
-                                Map<String,Object> earningUpdate = new HashMap<>();
-                                earningUpdate.put("Earnings",""+newEarnings);
-                                spotHolder.child("Profile").updateChildren(earningUpdate).addOnCompleteListener(task -> {
-                                    parkingBooking.setTransactionId(pinkey);
-                                    Booking.bookParkingSpot(parkingBooking);
-                                });
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-//
-                        spotHolder.child("Transaction").child(pinkey).setValue(pinkey);
-                        mUserTransactions.child(pinkey).setValue(pinkey);
-                    }
-                }
-            });
-
-        }
-    } */
-
     public static class Booking {
         static DatabaseReference mGlobalLocationPinRef = REF.child("GlobalPins");
         static DatabaseReference mGlobalBookings = REF.child("GlobalBookings");
@@ -543,45 +359,6 @@ public class NetworkServices {
             });
         }
 
-        //Bunu da silebiliriz.
-        /*private static void bookParkingSpot(ParkingBooking parkingBooking) {
-            Map<String, Object> bookingMap = new HashMap<>();
-
-            bookingMap.put(ParkingBookingConstants.by, parkingBooking.getBy());
-            bookingMap.put(ParkingBookingConstants.parkingArea, parkingBooking.getParkingArea());
-            bookingMap.put(ParkingBookingConstants.parkingId, parkingBooking.getParkingId());
-            bookingMap.put(ParkingBookingConstants.slotNo, parkingBooking.getSlotNo());
-            bookingMap.put(ParkingBookingConstants.spotHost, parkingBooking.getSpotHost());
-            bookingMap.put(ParkingBookingConstants.timestamp, ServerValue.TIMESTAMP);
-            bookingMap.put(ParkingBookingConstants.transactionId, parkingBooking.getTransactionId());
-
-            NetworkServices.logg(parkingBooking.getBy());
-            logg(parkingBooking.getParkingArea());
-            logg(parkingBooking.getParkingId());
-            logg(parkingBooking.getSlotNo());
-            logg(parkingBooking.getSpotHost());
-            logg(parkingBooking.getTransactionId());
-
-            String key = REF.child("GlobalBookings").push().getKey();
-
-            Map<String, Object> spotBookedUpdate = new HashMap<>();
-            spotBookedUpdate.put("booked", "" + GooglePinParkYeriKiralama.noOfSlotsToBeBooked);
-
-            mGlobalLocationPinRef.child(parkingBooking.getParkingArea() + "/" + parkingBooking.getParkingId() + "/booking" + "/" + GooglePinParkYeriKiralama.Year + "/"
-                    + GooglePinParkYeriKiralama.monthOfYear + "/" + GooglePinParkYeriKiralama.dayOfMonth + "/" + parkingBooking.getSlotNo()).updateChildren(spotBookedUpdate)
-                    .addOnCompleteListener(task -> mGlobalBookings.child(key).setValue(bookingMap, (databaseError, databaseReference) -> {
-                        if (databaseError == null) {
-                            mUserParkingBookingsRef.child(key).setValue(key);
-                        } else {
-                            //remove transaction and add that balance back
-                        }
-                    }));
-            } */
-
     }
-
-    /*public static void logg(String msg) {
-        Log.d("PQR",msg);
-    } */
 
 }
