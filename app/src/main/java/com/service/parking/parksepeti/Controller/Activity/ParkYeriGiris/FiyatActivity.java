@@ -1,20 +1,18 @@
 package com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Pair;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.service.parking.parksepeti.Controller.Activity.BirincilActivity;
 import com.service.parking.parksepeti.Model.LocationPin;
+import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
-import com.service.parking.parksepeti.ParkSepeti;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -80,9 +78,7 @@ public class FiyatActivity extends AppCompatActivity {
                 Intent toMain = new Intent(this, BirincilActivity.class);
                 toMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 toMain.putExtra("position",position);
-                Pair pair = new Pair<View, String>(mFinishBtn,"circleBtn");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pair);
-                startActivity(toMain,options.toBundle());
+                startActivity(toMain,null);
                 mFinishBtn.setEnabled(true);
             }
         });

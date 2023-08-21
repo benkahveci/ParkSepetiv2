@@ -1,15 +1,13 @@
 package com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.util.Pair;
-import android.view.View;
 import android.widget.Button;
 
-import com.service.parking.parksepeti.R;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.service.parking.parksepeti.ParkSepeti;
+import com.service.parking.parksepeti.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,9 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         mLogin_btn.setOnClickListener(v -> {
 
             Intent toMobileVerifyActivity = new Intent(LoginActivity.this, MobileVerifyActivity.class);
-            Pair pair = new Pair<View, String>(mLogin_btn,"loginTransition");
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pair);
-            startActivity(toMobileVerifyActivity,options.toBundle());
+            startActivity(toMobileVerifyActivity,null);
         });
     }
 }

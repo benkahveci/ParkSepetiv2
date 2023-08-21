@@ -1,13 +1,14 @@
 package com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.service.parking.parksepeti.Model.LocationPin;
-import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.ParkSepeti;
+import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Utils.LocationConstants;
 
 import at.markushi.ui.CircleButton;

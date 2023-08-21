@@ -1,20 +1,18 @@
 package com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import android.util.Log;
-import android.util.Pair;
-import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -25,8 +23,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.Task;
-import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.ParkSepeti;
+import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Utils.LocationConstants;
 
 import java.io.IOException;
@@ -90,9 +88,8 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
                 areaAddress.putExtra(LocationConstants.address,address);
                 areaAddress.putExtra(LocationConstants.area,area);
                 areaAddress.putExtra(LocationConstants.pincode,pincode);
-                Pair pair = new Pair<View, String>(mNextBtn,"circleBtn");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pair);
-                startActivity(areaAddress,options.toBundle());
+
+                startActivity(areaAddress,null);
             } else {
                 Toasty.error(this, "Please select parking first!").show();
             }

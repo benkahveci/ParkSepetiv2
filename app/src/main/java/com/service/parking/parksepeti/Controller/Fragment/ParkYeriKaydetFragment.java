@@ -57,16 +57,12 @@ public class ParkYeriKaydetFragment extends Fragment {
 
         mAddParkingBtn.setOnClickListener(v ->{
             Intent addPin = new Intent(getContext(), ParkYeriPinleActivity.class);
-            Pair pair = new Pair<View, String>(mAddParkingBtn,"circleBtn");
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(), pair);
-            startActivity(addPin,options.toBundle());
+            startActivity(addPin,null);
         });
 
         mFloatingAddParkingBtn.setOnClickListener(v -> {
             Intent addPin = new Intent(getContext(), ParkYeriPinleActivity.class);
-            Pair pair = new Pair<View, String>(mFloatingAddParkingBtn,"circleBtn");
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(), pair);
-            startActivity(addPin,options.toBundle());
+            startActivity(addPin,null);
         });
 
         locationPinList = new ArrayList<>();

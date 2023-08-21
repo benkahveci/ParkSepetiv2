@@ -1,17 +1,14 @@
 package com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Pair;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.ParkSepeti;
+import com.service.parking.parksepeti.R;
 
 import at.markushi.ui.CircleButton;
 import butterknife.BindView;
@@ -56,10 +53,7 @@ public class MobileVerifyActivity extends Activity {
 
                     Intent otpActivity = new Intent(MobileVerifyActivity.this,OtpVerifyActivity.class);
 
-                    Pair pair = new Pair<View, String>(mPhoneVerify_btn,"loginTransition");
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pair);
-
-                    startActivity(otpActivity,options.toBundle());
+                    startActivity(otpActivity,null);
                     finish();
                     ParkSepeti.animate(this);
                 }

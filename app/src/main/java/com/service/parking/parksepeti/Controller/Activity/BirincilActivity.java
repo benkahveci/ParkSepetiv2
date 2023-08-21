@@ -1,30 +1,27 @@
 package com.service.parking.parksepeti.Controller.Activity;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-import androidx.fragment.app.Fragment;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import android.util.Pair;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.LoginActivity;
-import com.service.parking.parksepeti.Controller.Fragment.ReserveEdilenFragment;
-import com.service.parking.parksepeti.Controller.Fragment.ParkYeriKaydetFragment;
-//import com.service.parking.parksepeti.Controller.Fragment.PackagesFragment;
 import com.service.parking.parksepeti.Controller.Fragment.GoogleKayıtlıYerlerFragment;
-//import com.service.parking.parksepeti.Controller.Fragment.WalletFragment;
+import com.service.parking.parksepeti.Controller.Fragment.ParkYeriKaydetFragment;
+import com.service.parking.parksepeti.Controller.Fragment.ReserveEdilenFragment;
+import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
-import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.View.ActivityAnimator;
 
 import butterknife.BindView;
@@ -80,9 +77,7 @@ public class BirincilActivity extends AppCompatActivity {
 
     private boolean profileActivity() {
         Intent toProfile = new Intent(this, KullanıcıProfiliActivity.class);
-        Pair pair = new Pair<View, String>(mProfileImageView,"circleImage");
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, pair);
-        startActivity(toProfile,options.toBundle());
+        startActivity(toProfile,null);
         return false;
     }
 
@@ -149,9 +144,6 @@ public class BirincilActivity extends AppCompatActivity {
             NetworkServices.ProfileData.setData(mName,mEmail,null);
         }
 
-        try {
-            ActivityAnimator.fadeAnimation(this);
-        } catch (Exception ignore) {}
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.enableAnimation(true);

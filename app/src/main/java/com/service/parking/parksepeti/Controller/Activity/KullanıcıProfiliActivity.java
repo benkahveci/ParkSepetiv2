@@ -12,9 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
-import com.service.parking.parksepeti.ParkSepeti;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

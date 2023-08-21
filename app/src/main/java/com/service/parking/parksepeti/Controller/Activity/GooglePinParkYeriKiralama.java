@@ -1,10 +1,6 @@
 package com.service.parking.parksepeti.Controller.Activity;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,13 +8,17 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.service.parking.parksepeti.Controller.Adapters.ParkYeriSaatleriAdapter;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.Model.ParkingBooking;
-//import com.service.parking.parksepeti.Model.Transaction;
+import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
-import com.service.parking.parksepeti.ParkSepeti;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -104,8 +104,6 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
     public static String noOfSlotsToBeBooked;
     public static ParkingBooking parkingBooking = new ParkingBooking();
 
-    //public static Transaction parkingBookingTransation = new Transaction();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,15 +127,16 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
 
         NetworkServices.ProfileData.getProfileDataById(selectedPin.getBy(), detailPersonName);
         detailPersonMobileNo.setText(selectedPin.getMobile());
-        spotDescription.setText(selectedPin.getDescription());
+        spotDescription.setText(selectedPin.getDescription()); //Bunu da silelim.
         spotPrice.setText("₹" + selectedPin.getPrice() + "/4 Hour");
-        spotType.setText(selectedPin.getType());
+        spotType.setText(selectedPin.getType()); //Bunu da silelim.
 
         detailCloseBtn.setOnClickListener(v -> {
             ParkSepeti.animateSlide(GooglePinParkYeriKiralama.this);
             finish();
         });
 
+        //Burayı da silelim.
         spotDetail_next_Btn.setOnClickListener(v -> {
             segmentedButtonGroup.setPosition(1);
             showFeatures();
@@ -153,10 +152,10 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
                 case 0:
                     showSpotDetail();
                     break;
-                case 1:
+                /* case 1:  //Burayı sileceğiz. Feautes istemiyoruz.
                     showFeatures();
-                    break;
-                case 2:
+                    break; */
+                case 1:
                     showBookings();
                     break;
             }
@@ -190,7 +189,6 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
         });
 
         booking_final_Btn.setOnClickListener(v -> {
-            //NetworkServices.TransactionData.doTransaction(parkingBookingTransation,parkingBooking);
             AmountToPayLayout.setVisibility(View.INVISIBLE);
             Toasty.success(this,"Parking Booked Successfully").show();
         });
@@ -243,6 +241,7 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
         AmountToPayLayout.setVisibility(View.INVISIBLE);
     }
 
+    //Burayı da sileceğiz.
     private void showFeatures() {
         spotDetailLayout.setVisibility(View.INVISIBLE);
         featuresLayout.setVisibility(View.VISIBLE);
