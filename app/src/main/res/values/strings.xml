@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Park Sepeti</string>
+    <string name="activity_login_already_a_user">"Daha önce kayıt oldunuz mu? "</string>
+    <string name="activity_login_continue_with">Devam et</string>
+    <string name="activity_login_or">veya</string>
+    <string name="activity_login_sign_in_here"><u>Sign in here</u></string>
+    <string name="activity_login_sign_up">Cep Telefonuyla Devam Et.</string>
+    <string name="agree_terms">Şartlarımızı kabul edin. </string>
+    <string name="activity_phone_verify_bottom_message">Cep Telefonunuza gelen şifreyi girin</string>
+    <string name="activity_phone_verify_confirm_message">Telefonu onayla!</string>
+    <string name="activity_phone_verify_ext">"Ext  "</string>
+    <string name="activity_phone_verify_your_phone_number">Cep Telefonu</string>
+    <string name="activity_otp_btn_change_number">Numarayı Değiştir</string>
+    <string name="activity_otp_btn_resend">Tekrar Gönder</string>
+    <string name="activity_otp_don_t_receive_otp">Kod Gelmedi Mi?</string>
+    <string name="activity_otp_message">Kodu girelim. </string>
+    <string name="activity_otp_we_r_almost_done">Son etap</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="google_maps_key">AIzaSyDBrsuKvX_2JUxEM6vl6l8XkUXEzCusG9I</string>
+
+</resources>
