@@ -25,8 +25,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-//        ActionBar actionBar = getActionBar();
-//        actionBar.hide();
         ParkSepeti.animate(this);
 
         mLogin_btn.setOnClickListener(v -> {

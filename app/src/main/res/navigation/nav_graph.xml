@@ -63,11 +63,6 @@
         android:label="activity_parking_pin"
         tools:layout="@layout/activity_parking_pin" />
     <activity
-        android:id="@+id/parkingDetailsActivity"
-        android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.ParkBilgiDetayActivity"
-        android:label="activity_parking_details"
-        tools:layout="@layout/activity_parking_details" />
-    <activity
         android:id="@+id/areaAndAddressActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.AdresSecActivity"
         android:label="activity_area_and_address"

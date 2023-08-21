@@ -8,8 +8,8 @@ public class UserProfile {
     public String Name;
     public String Total_spots;
     public String Spots_used;
-    public String Balance;
-    public String Earnings;
+    public String Balance; //Bunu çıkaralım.
+    public String Earnings; //Bunu çıkaralım.
 
     public UserProfile(String email, String mobile_no, String name) {
         Email = email;

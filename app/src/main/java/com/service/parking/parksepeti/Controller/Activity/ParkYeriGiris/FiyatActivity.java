@@ -16,6 +16,9 @@ import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
 import com.service.parking.parksepeti.ParkSepeti;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import at.markushi.ui.CircleButton;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,13 +50,22 @@ public class FiyatActivity extends AppCompatActivity {
     String price;
     LocationPin locationPin = ParkSepeti.currentLocationpin;
 
+    String parkingType = "carpool";
+    String noOFSpots = "25";
+
+    Boolean coveredFeature = false;
+    Boolean staffFeature = false;
+    Boolean cameraFeature = false;
+    Boolean disabledAccessFeature = false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_price_and_additional_details);
         ButterKnife.bind(this);
         ParkSepeti.animate(this);
-        mActionBarName.setText("Price and Additional Details");
+        mActionBarName.setText("Fiyat ve son detaylar");
 
         mBackBtn.setOnClickListener(v -> {
             onBackPressed();
@@ -83,6 +95,17 @@ public class FiyatActivity extends AppCompatActivity {
             Toasty.error(this,"Please fill the information correctly").show();
             return false;
         } else {
+            Map<String,Boolean> features = new HashMap<>();
+            features.put("Covered",coveredFeature);
+            features.put("Security Camera",cameraFeature);
+            features.put("Onsite Staff",staffFeature);
+            features.put("Disabled Access",disabledAccessFeature);
+
+            locationPin.setFeatures(features);
+            locationPin.setNumberofspot(noOFSpots);
+            locationPin.setType(parkingType);
+
+
 
             if (description.isEmpty()) {
                 description = "No Description Provided by the Host";

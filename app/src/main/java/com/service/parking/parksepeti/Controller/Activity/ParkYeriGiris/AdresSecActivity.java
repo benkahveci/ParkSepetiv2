@@ -79,7 +79,7 @@ public class AdresSecActivity extends AppCompatActivity {
                 locationPin.setAddress(address + " " + pincode);
                 locationPin.setArea(area);
                 locationPin.setMobile(mobileno);
-                startActivity(new Intent(AdresSecActivity.this, ParkBilgiDetayActivity.class));
+                startActivity(new Intent(AdresSecActivity.this, FiyatActivity.class));
             }
         });
 

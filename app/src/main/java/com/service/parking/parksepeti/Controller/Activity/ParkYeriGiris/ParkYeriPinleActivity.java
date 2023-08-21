@@ -113,9 +113,7 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
         getLocationPermission();
         updateLocationUI();
         getDeviceLocation();
-//        map.setOnMapClickListener(v -> {
-//            Toasty.success(this, "Click Captured").show();
-//        });
+
 
         map.setOnMapLongClickListener(v -> {
 
