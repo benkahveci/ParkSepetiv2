@@ -1,4 +1,4 @@
-package com.service.parking.parksepeti.Utils;
+/* package com.service.parking.parksepeti.Utils;
 
 public class TransactionConstants {
 
@@ -9,4 +9,4 @@ public class TransactionConstants {
     public static final String of = "of";
     public static final String timeStamp = "timestamp";
 
-}
+} */

@@ -12,10 +12,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.service.parking.parksepeti.Controller.Adapters.SlotsAdapter;
+import com.service.parking.parksepeti.Controller.Adapters.ParkYeriSaatleriAdapter;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.Model.ParkingBooking;
-import com.service.parking.parksepeti.Model.Transaction;
+//import com.service.parking.parksepeti.Model.Transaction;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
 import com.service.parking.parksepeti.ParkSepeti;
@@ -94,7 +94,7 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
     @BindView(R.id.recy)
     RecyclerView SlotRecycleeView;
 
-    SlotsAdapter slotsAdapter;
+    ParkYeriSaatleriAdapter slotsAdapter;
     List<Map<String, Object>> slotsData;
 
     public static TextView AmountToPay;
@@ -103,7 +103,8 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
     public static int Year, monthOfYear, dayOfMonth;
     public static String noOfSlotsToBeBooked;
     public static ParkingBooking parkingBooking = new ParkingBooking();
-    public static Transaction parkingBookingTransation = new Transaction();
+
+    //public static Transaction parkingBookingTransation = new Transaction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,8 +190,7 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
         });
 
         booking_final_Btn.setOnClickListener(v -> {
-            NetworkServices.TransactionData.doTransaction(parkingBookingTransation,parkingBooking);
-//            bookingLayout.setVisibility(View.INVISIBLE);
+            //NetworkServices.TransactionData.doTransaction(parkingBookingTransation,parkingBooking);
             AmountToPayLayout.setVisibility(View.INVISIBLE);
             Toasty.success(this,"Parking Booked Successfully").show();
         });
@@ -206,7 +206,7 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
 
         slotsData.clear();
 
-        slotsAdapter = new SlotsAdapter(slotsData);
+        slotsAdapter = new ParkYeriSaatleriAdapter(slotsData);
         RecyclerView.LayoutManager mLayoutmanager = new LinearLayoutManager(this);
         SlotRecycleeView.setLayoutManager(mLayoutmanager);
         SlotRecycleeView.setItemAnimator(new DefaultItemAnimator());

@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.ParkYeriPinleActivity;
-import com.service.parking.parksepeti.Controller.Adapters.MySpotsAdapter;
+import com.service.parking.parksepeti.Controller.Adapters.ParkYerlerimAdapter;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
@@ -34,7 +34,7 @@ public class ParkYeriKaydetFragment extends Fragment {
     @BindView(R.id.mySpotRecyclerView)
     RecyclerView mMySpotsRecyclerView;
 
-    MySpotsAdapter mySpotsAdapter;
+    ParkYerlerimAdapter mySpotsAdapter;
     List<LocationPin> locationPinList;
 
     @BindView(R.id.add_parking_btn)
@@ -70,7 +70,7 @@ public class ParkYeriKaydetFragment extends Fragment {
         });
 
         locationPinList = new ArrayList<>();
-        mySpotsAdapter = new MySpotsAdapter(locationPinList,getContext());
+        mySpotsAdapter = new ParkYerlerimAdapter(locationPinList,getContext());
 
         RecyclerView.LayoutManager mLayoutmanager = new LinearLayoutManager(getContext());
         mMySpotsRecyclerView.setLayoutManager(mLayoutmanager);

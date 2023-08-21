@@ -1,4 +1,4 @@
-package com.service.parking.parksepeti.Utils;
+/*package com.service.parking.parksepeti.Utils;
 
 public class ParkingBookingConstants {
     public static final String parkingId = "parkingId";
@@ -8,4 +8,4 @@ public class ParkingBookingConstants {
     public static final String spotHost = "spotHost";
     public static final String slotNo = "slotNo";
     public static final String parkingArea = "parkingArea";
-}
+}*/

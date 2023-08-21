@@ -1,4 +1,4 @@
-package com.service.parking.parksepeti.Model;
+/*package com.service.parking.parksepeti.Model;
 
 public class Transaction {
 
@@ -77,4 +77,4 @@ public class Transaction {
     public void setTransaction_key(String transaction_key) {
         this.transaction_key = transaction_key;
     }
-}
+} */

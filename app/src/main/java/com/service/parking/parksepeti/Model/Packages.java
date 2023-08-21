@@ -1,4 +1,4 @@
-package com.service.parking.parksepeti.Model;
+/* package com.service.parking.parksepeti.Model;
 
 public class Packages {
 
@@ -71,3 +71,4 @@ public class Packages {
         this.id = id;
     }
 }
+*/

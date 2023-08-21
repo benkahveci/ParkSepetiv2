@@ -21,18 +21,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.service.parking.parksepeti.Controller.Activity.GooglePinParkYeriKiralama;
-import com.service.parking.parksepeti.Controller.Adapters.MySpotsAdapter;
-import com.service.parking.parksepeti.Controller.Adapters.PackageAdapter;
-import com.service.parking.parksepeti.Controller.Adapters.SlotsAdapter;
+import com.service.parking.parksepeti.Controller.Adapters.ParkYerlerimAdapter;
+//import com.service.parking.parksepeti.Controller.Adapters.PackageAdapter;
+import com.service.parking.parksepeti.Controller.Adapters.ParkYeriSaatleriAdapter;
 import com.service.parking.parksepeti.Model.LocationPin;
-import com.service.parking.parksepeti.Model.Packages;
+//import com.service.parking.parksepeti.Model.Packages;
 import com.service.parking.parksepeti.Model.ParkingBooking;
-import com.service.parking.parksepeti.Model.Transaction;
+//import com.service.parking.parksepeti.Model.Transaction;
 import com.service.parking.parksepeti.Model.UserProfile;
 import com.service.parking.parksepeti.Utils.LocationConstants;
-import com.service.parking.parksepeti.Utils.PackageConstants;
-import com.service.parking.parksepeti.Utils.ParkingBookingConstants;
-import com.service.parking.parksepeti.Utils.TransactionConstants;
+//import com.service.parking.parksepeti.Utils.PackageConstants;
+//import com.service.parking.parksepeti.Utils.ParkingBookingConstants;
+//import com.service.parking.parksepeti.Utils.TransactionConstants;
 import com.service.parking.parksepeti.View.SnackbarWrapper;
 
 import java.util.ArrayList;
@@ -161,7 +161,8 @@ public class NetworkServices {
 
     }
 
-    public static class PackagesData {
+    //PackagesData
+    /*public static class PackagesData {
         static DatabaseReference mPackageRef = REF.child("packages");
 
         public static void getPackages(List<Packages> list, PackageAdapter adapter) {
@@ -188,8 +189,6 @@ public class NetworkServices {
                 @Override
                 public void onChildRemoved(@NonNull DataSnapshot dataSnapshot)
                 {
-//                    Toast.makeText(getApplicationContext(),""+dataSnapshot,Toast.LENGTH_LONG).show();
-
                     String keyID =dataSnapshot.getKey();
                     for(int i = 0;i<=list.size()-1;i++)
                     {
@@ -213,7 +212,7 @@ public class NetworkServices {
                 }
             });
         }
-    }
+    } */
 
     public static class ParkingPin {
         static DatabaseReference mGlobalLocationPinRef = REF.child("GlobalPins");
@@ -255,7 +254,7 @@ public class NetworkServices {
             });
         }
 
-        public static void getMyLocationPins(List<LocationPin> locationPinList, MySpotsAdapter mySpotsAdapter) {
+        public static void getMyLocationPins(List<LocationPin> locationPinList, ParkYerlerimAdapter mySpotsAdapter) {
             mUserLocationPinRef.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -381,7 +380,9 @@ public class NetworkServices {
         }
     }
 
-    public static class TransactionData {
+
+    //TransactionData
+    /* public static class TransactionData {
         static DatabaseReference mGlobalTransactions = REF.child("GlobalTransaction").child("Transactions");
         static DatabaseReference mGlobalBalance = REF.child("GlobalBalance");
         static DatabaseReference mUserTransactions = REF.child("Users").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child("Transaction");
@@ -484,14 +485,14 @@ public class NetworkServices {
             });
 
         }
-    }
+    } */
 
     public static class Booking {
         static DatabaseReference mGlobalLocationPinRef = REF.child("GlobalPins");
         static DatabaseReference mGlobalBookings = REF.child("GlobalBookings");
         static DatabaseReference mUserParkingBookingsRef = REF.child("Users").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child("MyParkingBookings");
 
-        public static void getSlotData(LocationPin locationPin, int year, int monthOfYear, int dayOfMonth, List<Map<String,Object>> slotsDataList, SlotsAdapter slotsAdapter) {
+        public static void getSlotData(LocationPin locationPin, int year, int monthOfYear, int dayOfMonth, List<Map<String,Object>> slotsDataList, ParkYeriSaatleriAdapter slotsAdapter) {
             mGlobalLocationPinRef.child(locationPin.getArea()).child(locationPin.getPinkey()).child("booking").child(year + "").child("" + (monthOfYear)).child(dayOfMonth + "")
                     .addValueEventListener(new ValueEventListener() {
                         @Override
@@ -542,7 +543,8 @@ public class NetworkServices {
             });
         }
 
-        private static void bookParkingSpot(ParkingBooking parkingBooking) {
+        //Bunu da silebiliriz.
+        /*private static void bookParkingSpot(ParkingBooking parkingBooking) {
             Map<String, Object> bookingMap = new HashMap<>();
 
             bookingMap.put(ParkingBookingConstants.by, parkingBooking.getBy());
@@ -574,11 +576,12 @@ public class NetworkServices {
                             //remove transaction and add that balance back
                         }
                     }));
-            }
-        }
+            } */
 
-    public static void logg(String msg) {
-        Log.d("PQR",msg);
     }
+
+    /*public static void logg(String msg) {
+        Log.d("PQR",msg);
+    } */
 
 }

@@ -1,4 +1,4 @@
-package com.service.parking.parksepeti.Controller.Adapters;
+/* package com.service.parking.parksepeti.Controller.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -91,4 +91,4 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
 
         }
     }
-}
+} */

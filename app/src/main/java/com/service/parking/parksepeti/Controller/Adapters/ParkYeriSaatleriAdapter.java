@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.service.parking.parksepeti.Controller.Activity.GooglePinParkYeriKiralama;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.Model.ParkingBooking;
-import com.service.parking.parksepeti.Model.Transaction;
+//import com.service.parking.parksepeti.Model.Transaction;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.ParkSepeti;
 
@@ -25,14 +25,14 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SlotsAdapter extends RecyclerView.Adapter<SlotsAdapter.SlotViewHolder> {
+public class ParkYeriSaatleriAdapter extends RecyclerView.Adapter<ParkYeriSaatleriAdapter.SlotViewHolder> {
 
     private List<Map<String,Object>> slotsDataList;
     private LocationPin selectedPin;
     private List<RelativeLayout>relativeLayoutList = new ArrayList<>();
     private Context context;
 
-    public SlotsAdapter(List<Map<String,Object>> slotsDataList) {
+    public ParkYeriSaatleriAdapter(List<Map<String,Object>> slotsDataList) {
         this.slotsDataList = slotsDataList;
         selectedPin = ParkSepeti.selectedLocationPin;
     }
@@ -123,12 +123,12 @@ public class SlotsAdapter extends RecyclerView.Adapter<SlotsAdapter.SlotViewHold
         parkingBooking.setSpotHost(selectedPin.getBy());
         parkingBooking.setBy(FirebaseAuth.getInstance().getUid());
 
-        Transaction parkingBookingTransaction = GooglePinParkYeriKiralama.parkingBookingTransation;
+        /*Transaction parkingBookingTransaction = GooglePinParkYeriKiralama.parkingBookingTransation;
         parkingBookingTransaction.setAmount(""+amount);
         parkingBookingTransaction.setBy(FirebaseAuth.getInstance().getUid());
         parkingBookingTransaction.setForr(selectedPin.getBy());
         parkingBookingTransaction.setId(selectedPin.getPinkey());
-        parkingBookingTransaction.setOf("Parking");
+        parkingBookingTransaction.setOf("Parking"); */
 
     }
 

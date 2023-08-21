@@ -1,4 +1,4 @@
-package com.service.parking.parksepeti.Utils;
+/* package com.service.parking.parksepeti.Utils;
 
 public class PackageConstants {
 
@@ -8,5 +8,5 @@ public class PackageConstants {
     public static final String FB_package_price = "price";
     public static final String FB_package_status = "status";
 
-}
+} */
 

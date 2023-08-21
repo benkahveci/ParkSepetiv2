@@ -1,4 +1,4 @@
-package com.service.parking.parksepeti.View;
+/* package com.service.parking.parksepeti.View;
 
 
 import android.app.Activity;
@@ -19,16 +19,9 @@ public class PackageBuyDialog {
     AlertDialog alertDialog;
     int style;
 
-//    Context con;
     Packages packageModel;
     boolean cancellable = false;
     Runnable funcRun;
-
-//    public TextView dia_package_name;
-//    public TextView dia_package_price;
-//    public TextView dia_after_balance;
-////    public Button dia_confirm_purchase;
-//    public TextView dia_wallet_balance;
 
     public PackageBuyDialog(Packages packages, Activity activity, Runnable funcRun, int style) {
         this.dialogContext = activity;
@@ -67,12 +60,7 @@ public class PackageBuyDialog {
             dia_confirm_purchase.setText("Add Balance");
 
             Runnable runnable = () -> {
-//                Fragment fragment = new Fragment();
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.wallet_fragment, fragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+
             };
 
             Toasty.error(dialogContext, "You have insufficient wallet balance", Toast.LENGTH_LONG).show();
@@ -112,4 +100,4 @@ public class PackageBuyDialog {
     }
 
 
-}
+} */
