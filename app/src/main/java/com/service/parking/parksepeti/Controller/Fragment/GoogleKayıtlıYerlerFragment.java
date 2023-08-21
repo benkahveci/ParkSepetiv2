@@ -66,7 +66,6 @@ public class GoogleKayıtlıYerlerFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_places, container, false);
         ButterKnife.bind(this,view);
-        //ParkSepeti.animate(getActivity());
 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
 

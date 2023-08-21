@@ -59,8 +59,8 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
 
     List<Map<String, Object>> slotsData;
 
-    public static TextView AmountToPay;
-    public static RelativeLayout AmountToPayLayout;
+    //public static TextView AmountToPay;
+    //public static RelativeLayout AmountToPayLayout;
 
     public static String noOfSlotsToBeBooked;
     public static ParkingBooking parkingBooking = new ParkingBooking();

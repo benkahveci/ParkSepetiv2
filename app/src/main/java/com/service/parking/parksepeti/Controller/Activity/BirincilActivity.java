@@ -19,7 +19,6 @@ import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.Mobi
 import com.service.parking.parksepeti.Controller.Fragment.GoogleKayıtlıYerlerFragment;
 import com.service.parking.parksepeti.Controller.Fragment.ParkYeriKaydetFragment;
 import com.service.parking.parksepeti.Controller.Fragment.ReserveEdilenFragment;
-import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
 
@@ -54,11 +53,13 @@ public class BirincilActivity extends AppCompatActivity {
 
     int position = 0;
 
+
+    //Profil navigasyonu -> Bilgiler(KullanıcıProfiliActivity ve exit işlermleri için
     private NavigationView.OnNavigationItemSelectedListener mOnNavigationDrawerItemSelectedListener
             = menuItem -> {
         switch (menuItem.getItemId()) {
             case R.id.profile_activity:
-                return profileActivity();
+                return kullanıcıProfiliActivity();
 
             case R.id.logout_btn:
                 return logout();
@@ -68,7 +69,7 @@ public class BirincilActivity extends AppCompatActivity {
         }
     };
 
-    private boolean profileActivity() {
+    private boolean kullanıcıProfiliActivity() {
         Intent toProfile = new Intent(this, KullanıcıProfiliActivity.class);
         startActivity(toProfile,null);
         return false;
@@ -120,7 +121,7 @@ public class BirincilActivity extends AppCompatActivity {
         mName = headerView.findViewById(R.id.name_view);
         mProfileImageView = headerView.findViewById(R.id.profileimageView);
 
-        mProfileImageView.setOnClickListener(v -> profileActivity());
+        mProfileImageView.setOnClickListener(v -> kullanıcıProfiliActivity());
 
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
             NetworkServices.ProfileData.setData(mName,mEmail,null);

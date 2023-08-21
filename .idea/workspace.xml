@@ -25,28 +25,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/BirincilActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/BirincilActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/GooglePinParkYeriKiralama.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/GooglePinParkYeriKiralama.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/KullanıcıKaydet/MobileVerifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/KullanıcıKaydet/MobileVerifyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/KullanıcıKaydet/OtpVerifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/KullanıcıKaydet/OtpVerifyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/KullanıcıProfiliActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/KullanıcıProfiliActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/ParkYeriGiris/AdresSecActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/ParkYeriGiris/AdresSecActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/ParkYeriGiris/ParkYeriPinleActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Activity/ParkYeriGiris/ParkYeriPinleActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Adapters/ParkYeriSaatleriAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Adapters/ParkYeriSaatleriAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Adapters/ParkYeriSaatleriAdapter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Fragment/GoogleKayıtlıYerlerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Fragment/GoogleKayıtlıYerlerFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Fragment/ReserveEdilenFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Controller/Fragment/ReserveEdilenFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Model/LocationPin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Model/LocationPin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Model/ParkingBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Model/ParkingBooking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/ParkSepeti.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/ParkSepeti.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Services/NetworkServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/Services/NetworkServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/View/ActivityAnimator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/app_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/addimage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/app_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/book.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_area_and_address.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_adres_sec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_mobile_verify.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_telefon_dogrula.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_otp_verify.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_otp_dogrula.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_parking_pin_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_parking_pin_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/parking/parksepeti/View/SnackbarWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/parking_slots_layout.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

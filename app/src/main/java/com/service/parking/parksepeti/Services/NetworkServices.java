@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -20,18 +18,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.service.parking.parksepeti.Controller.Adapters.ParkYeriSaatleriAdapter;
 import com.service.parking.parksepeti.Controller.Adapters.ParkYerlerimAdapter;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.Model.UserProfile;
 import com.service.parking.parksepeti.Utils.LocationConstants;
-import com.service.parking.parksepeti.View.SnackbarWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import es.dmoral.toasty.Toasty;
 
 public class NetworkServices {
     static private DatabaseReference REF = FirebaseDatabase.getInstance().getReference();
@@ -51,10 +49,11 @@ public class NetworkServices {
             mProfileReference.updateChildren(UserdataMap).addOnCompleteListener(v -> {
 
                 if (v.isSuccessful()) {
-                    SnackbarWrapper.make(con, "Sucessfully Updated Profile");
+                    Toasty.success(con,"Sucessfully Updated Profile").show();
+
                 }
                 else {
-                    SnackbarWrapper.make(con, "Please try again!");
+                    Toasty.success(con,"Please Try Again").show();
                 }
             });
 
@@ -299,65 +298,6 @@ public class NetworkServices {
                 public void onCancelled(@NonNull DatabaseError databaseError) { }
             });
         }
-    }
-
-
-    public static class Booking {
-        static DatabaseReference mGlobalLocationPinRef = REF.child("GlobalPins");
-        static DatabaseReference mGlobalBookings = REF.child("GlobalBookings");
-        static DatabaseReference mUserParkingBookingsRef = REF.child("Users").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child("MyParkingBookings");
-
-        public static void getSlotData(LocationPin locationPin, int year, int monthOfYear, int dayOfMonth, List<Map<String,Object>> slotsDataList, ParkYeriSaatleriAdapter slotsAdapter) {
-            mGlobalLocationPinRef.child(locationPin.getArea()).child(locationPin.getPinkey()).child("booking").child(year + "").child("" + (monthOfYear)).child(dayOfMonth + "")
-                    .addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.hasChildren()) {
-                                //Adapter code for booking slots display
-                                slotsAdapter.notifyDataSetChanged();
-
-                                for(int i=1;i<=6;i++) {
-                                    String slotname = "slot"+i;
-                                    Map<String,Object> slot = (Map<String,Object>)dataSnapshot.child(slotname).getValue();
-                                    slotsDataList.add(slot);
-                                    slotsAdapter.notifyDataSetChanged();
-                                }
-                            } else {
-                                Booking.setDefaultValues(locationPin, year, monthOfYear, dayOfMonth);
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-        }
-
-        private static void setDefaultValues(LocationPin locationPin, int year, int monthOfYear, int dayOfMonth) {
-            int time=0;
-
-            Map<String,Object> mains=new HashMap<>();
-
-            for(int i=1;i<=6;i++)
-            {
-                String st=time+" to "+(time+4);
-
-                time=time+4;
-                Map<String,String> s=new HashMap<>();
-                s.put("capacity",locationPin.getNumberofspot());
-                s.put("booked","0");
-                s.put("slot",st);
-                mains.put("slot"+i,s);
-            }
-            mGlobalLocationPinRef.child(locationPin.getArea()).child(locationPin.getPinkey()).child("booking").child(year + "").child("" + (monthOfYear)).child(dayOfMonth + "").setValue(mains).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-
-                }
-            });
-        }
-
     }
 
 }
