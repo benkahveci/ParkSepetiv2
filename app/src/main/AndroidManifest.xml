@@ -35,7 +35,6 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.ParkYeriPinleActivity" />
-        <activity android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.FiyatActivity" />
     </application>
 
 </manifest>

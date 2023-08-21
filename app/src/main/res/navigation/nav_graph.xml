@@ -61,9 +61,4 @@
         android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.AdresSecActivity"
         android:label="activity_area_and_address"
         tools:layout="@layout/activity_area_and_address" />
-    <activity
-        android:id="@+id/priceAndAdditionalDetailsActivity"
-        android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.FiyatActivity"
-        android:label="activity_price_and_additional_details"
-        tools:layout="@layout/activity_price_and_additional_details" />
 </navigation>

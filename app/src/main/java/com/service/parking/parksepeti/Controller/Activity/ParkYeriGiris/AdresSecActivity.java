@@ -6,10 +6,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.service.parking.parksepeti.Controller.Activity.BirincilActivity;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
+import com.service.parking.parksepeti.Services.NetworkServices;
 import com.service.parking.parksepeti.Utils.LocationConstants;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import at.markushi.ui.CircleButton;
 import butterknife.BindView;
@@ -45,6 +50,17 @@ public class AdresSecActivity extends AppCompatActivity {
     private String address;
     private String pincode;
 
+    String parkingType = "carpool";
+    String noOFSpots = "25";
+
+    Boolean coveredFeature = false;
+    Boolean staffFeature = false;
+    Boolean cameraFeature = false;
+    Boolean disabledAccessFeature = false;
+
+    String description = "boşş";
+    String price = "25";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,11 +92,31 @@ public class AdresSecActivity extends AppCompatActivity {
             if (mobileno.isEmpty() || area.isEmpty() || address.isEmpty() || pincode.isEmpty()) {
                 Toasty.error(this,"Please fill the information correctly").show();
             } else {
+                Map<String,Boolean> features = new HashMap<>();
+                features.put("Covered",coveredFeature);
+                features.put("Security Camera",cameraFeature);
+                features.put("Onsite Staff",staffFeature);
+                features.put("Disabled Access",disabledAccessFeature);
+
                 LocationPin locationPin = ParkSepeti.currentLocationpin;
+
+                locationPin.setFeatures(features);
+                locationPin.setNumberofspot(noOFSpots);
+                locationPin.setType(parkingType);
+
                 locationPin.setAddress(address + " " + pincode);
                 locationPin.setArea(area);
                 locationPin.setMobile(mobileno);
-                startActivity(new Intent(AdresSecActivity.this, FiyatActivity.class));
+                locationPin.setPrice("25");
+                locationPin.setDescription("null");
+
+                NetworkServices.ParkingPin.setLocationPin(locationPin);
+                int position = 2;
+                Intent toMain = new Intent(this, BirincilActivity.class);
+                toMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                toMain.putExtra("position",position);
+                startActivity(toMain,null);
+                mNextBtn.setEnabled(true);
             }
         });
 
