@@ -8,7 +8,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity;
 import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.Services.NetworkServices;
-import com.service.parking.parksepeti.View.ActivityAnimator;
 
 public class ParkSepeti extends Application {
 
@@ -20,7 +19,6 @@ public class ParkSepeti extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() == null)
@@ -34,17 +32,5 @@ public class ParkSepeti extends Application {
             currentLocationpin.setBy(uid);
             NetworkServices.ProfileData.getProfileData();
         }
-
-    }
-
-    public static void animate(Activity activity) {
-        try {
-            ActivityAnimator.fadeAnimation(activity);
-        } catch (Exception ignore) {}
-    }
-    public static void animateSlide(Activity activity) {
-        try {
-            ActivityAnimator.slideInBottomAnimation(activity);
-        } catch (Exception ignore) {}
     }
 }

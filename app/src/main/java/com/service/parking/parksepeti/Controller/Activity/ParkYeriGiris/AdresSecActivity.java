@@ -64,9 +64,8 @@ public class AdresSecActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_area_and_address);
+        setContentView(R.layout.activity_adres_sec);
         ButterKnife.bind(this);
-        ParkSepeti.animate(this);
 
         area = getIntent().getStringExtra(LocationConstants.area);
         address = getIntent().getStringExtra(LocationConstants.address);
@@ -80,7 +79,6 @@ public class AdresSecActivity extends AppCompatActivity {
 
         mBackBtn.setOnClickListener(v -> {
             onBackPressed();
-            ParkSepeti.animate(this);
         });
 
         mNextBtn.setOnClickListener(v -> {
@@ -125,6 +123,5 @@ public class AdresSecActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        ParkSepeti.animate(this);
     }
 }

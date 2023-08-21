@@ -61,10 +61,9 @@ public class OtpVerifyActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_otp_verify);
+        setContentView(R.layout.activity_otp_dogrula);
         ButterKnife.bind(this);
 
-        ParkSepeti.animate(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -153,7 +152,6 @@ public class OtpVerifyActivity extends Activity {
 
                                     startActivity(profileIntent, null);
                                     finish();
-                                    ParkSepeti.animate(this);
                                 } else {
                                     Snackbar.make(findViewById(android.R.id.content), Objects.requireNonNull(task1.getException()).getMessage(), Snackbar.LENGTH_LONG).show();
                                 }
@@ -163,7 +161,6 @@ public class OtpVerifyActivity extends Activity {
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(mainIntent, null);
                             finish();
-                            ParkSepeti.animate(this);
                         }
 
                     } else {

@@ -123,13 +123,6 @@ public class ParkYeriSaatleriAdapter extends RecyclerView.Adapter<ParkYeriSaatle
         parkingBooking.setSpotHost(selectedPin.getBy());
         parkingBooking.setBy(FirebaseAuth.getInstance().getUid());
 
-        /*Transaction parkingBookingTransaction = GooglePinParkYeriKiralama.parkingBookingTransation;
-        parkingBookingTransaction.setAmount(""+amount);
-        parkingBookingTransaction.setBy(FirebaseAuth.getInstance().getUid());
-        parkingBookingTransaction.setForr(selectedPin.getBy());
-        parkingBookingTransaction.setId(selectedPin.getPinkey());
-        parkingBookingTransaction.setOf("Parking"); */
-
     }
 
     @Override

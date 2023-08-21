@@ -8,12 +8,12 @@
         android:id="@+id/mobileVerifyActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity"
         android:label="activity_mobile_verify"
-        tools:layout="@layout/activity_mobile_verify" />
+        tools:layout="@layout/activity_telefon_dogrula" />
     <activity
         android:id="@+id/otpVerifyActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.OtpVerifyActivity"
         android:label="activity_otp_verify"
-        tools:layout="@layout/activity_otp_verify" />
+        tools:layout="@layout/activity_otp_dogrula" />
     <activity
         android:id="@+id/profileActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıProfiliActivity"
@@ -60,5 +60,5 @@
         android:id="@+id/areaAndAddressActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.AdresSecActivity"
         android:label="activity_area_and_address"
-        tools:layout="@layout/activity_area_and_address" />
+        tools:layout="@layout/activity_adres_sec" />
 </navigation>

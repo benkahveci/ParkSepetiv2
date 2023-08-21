@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
@@ -22,22 +21,15 @@ public class MobileVerifyActivity extends Activity {
     @BindView(R.id.et_phone_number)
     EditText mPhoneNumber;
 
-    @BindView(R.id.mobile_verify_back_btn)
-    ImageView mMobile_verify_back_btn;
-
     @BindView(R.id.et_name)
     EditText mPersonName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mobile_verify);
+        setContentView(R.layout.activity_telefon_dogrula);
         ButterKnife.bind(this);
 
-        ParkSepeti.animate(this);
-
-
-        mMobile_verify_back_btn.setOnClickListener(v -> onBackPressed());
 
         mPhoneVerify_btn.setOnClickListener(v -> {
             String Mobile_no= mPhoneNumber.getText().toString().trim();
@@ -55,7 +47,6 @@ public class MobileVerifyActivity extends Activity {
 
                     startActivity(otpActivity,null);
                     finish();
-                    ParkSepeti.animate(this);
                 }
 
             }
@@ -66,6 +57,5 @@ public class MobileVerifyActivity extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        ParkSepeti.animate(this);
     }
 }

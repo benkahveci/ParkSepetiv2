@@ -198,7 +198,6 @@ public class NetworkServices {
             mUserLocationPinRef.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//                    Map<String, Object> pinsSnapshot = (Map<String, Object>) dataSnapshot.getValue();
 
                     LocationPin pin = dataSnapshot.getValue(LocationPin.class);
 

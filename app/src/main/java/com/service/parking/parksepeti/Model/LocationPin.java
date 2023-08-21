@@ -6,22 +6,18 @@ import java.util.Map;
 public class LocationPin {
 
     private String by;
-
-    //Description çıkarılabilir.
-    private String description; // Bunu son sayfada alıyoruz.
-    private String price; // Son sayfada alıyoruz.
-    private String type; //Bunu ikinci sayfada alıyoruz. ParkingType. Carpool -emptyplot vb.
+    private String description;
+    private String price;
+    private String type;
     private String visibility;
-    private String numberofspot; //Bunu ikinci sayfada alıyoruz.
+    private String numberofspot;
     private String pinkey;
-
-    //Bu kısım çıkarılabilir.
-    private Map<String,Boolean> features = new HashMap<>(); //bunu ikinci sayfada alıyoruz. Covered, Security, Onsite, Disabled falan.
+    private Map<String,Boolean> features = new HashMap<>();
     private String photos;
     private Map<String,Double> pinloc  = new HashMap<>();
-    private String address; //Bunu ilk sayfada alıyoruz.
-    private String mobile;//Bunu ilk sayfada alıyoruz.
-    private String area; //Bunu ilk sayfada alıyoruz.
+    private String address;
+    private String mobile;
+    private String area;
 
     public LocationPin() { }
     public LocationPin(String by, String description, String price, String type, String visibility, String numberofspot, String pinkey, Map<String, Boolean> features, String photos, Map<String, Double> pinloc, String address, String mobile, String area) {

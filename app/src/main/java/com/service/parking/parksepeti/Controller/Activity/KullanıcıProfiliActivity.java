@@ -54,7 +54,6 @@ public class KullanıcıProfiliActivity extends Activity {
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
 
-        ParkSepeti.animate(this);
 
         NetworkServices.ProfileData.setData(mProfileName, mProfileEmail, mProfileMobileNo);
         NetworkServices.ProfileData.getProfileData();
@@ -63,13 +62,8 @@ public class KullanıcıProfiliActivity extends Activity {
 
         mProfileEditbtn.setOnClickListener(v -> {
 
-            //checkPermission();
-
-            //NetworkServices.ProfileData.init(mProfileName.getText().toString(), mProfileEmail.getText().toString(), getApplicationContext());
-
             Log.d("Name : ", mProfileName.getText().toString());
             UI_Update();
-
 
         });
 
@@ -83,7 +77,6 @@ public class KullanıcıProfiliActivity extends Activity {
 
         mProfileBackbtn.setOnClickListener(v -> {
             onBackPressed();
-            ParkSepeti.animate(this);
         });
 
         myProfileSaveBtn.setOnClickListener(v -> {
@@ -115,7 +108,6 @@ public class KullanıcıProfiliActivity extends Activity {
 
             mProfileEditbtn.setBackgroundResource(R.drawable.icon_save);
 
-            //NetworkServices.ProfileData.init(mProfileName.getText().toString(), mProfileEmail.getText().toString(), this);
 
         } else {
 
@@ -132,7 +124,6 @@ public class KullanıcıProfiliActivity extends Activity {
             if (fromLogin) {
                 startActivity(new Intent(this, BirincilActivity.class));
                 finish();
-                ParkSepeti.animate(this);
             }
 
         }

@@ -72,13 +72,11 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
         setContentView(R.layout.activity_parking_pin);
         ButterKnife.bind(this);
 
-        ParkSepeti.animate(this);
 
         mActionBarName.setText("Pin Parking Spot");
 
         mBackBtn.setOnClickListener(v -> {
             onBackPressed();
-            ParkSepeti.animate(this);
         });
 
         mNextBtn.setOnClickListener(v -> {
@@ -176,15 +174,9 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        ParkSepeti.animate(this);
     }
 
     private void getLocationPermission() {
-        /*
-         * Request location permission, so that we can get the location of the
-         * device. The result of the permission request is handled by a callback,
-         * onRequestPermissionsResult.
-         */
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {

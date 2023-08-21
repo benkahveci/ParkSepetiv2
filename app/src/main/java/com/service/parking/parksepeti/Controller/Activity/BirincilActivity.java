@@ -60,12 +60,6 @@ public class BirincilActivity extends AppCompatActivity {
             case R.id.profile_activity:
                 return profileActivity();
 
-            /* case R.id.setting_activity:
-                return false;
-
-            case R.id.transaction_activity:
-                return false; */
-
             case R.id.logout_btn:
                 return logout();
 
@@ -98,23 +92,12 @@ public class BirincilActivity extends AppCompatActivity {
                         position = 0;
                         break;
 
-                    /* case R.id.packages_fragment:
-                        fragmentName = "Packages";
-                        fragment = new PackagesFragment();
-                        position = 4;
-                        break; */
-
                     case R.id.bookings_fragment:
                         fragmentName = "Bookings";
                         fragment = new ReserveEdilenFragment();
                         position = 1;
                         break;
 
-                    /* case R.id.wallet_fragment:
-                        fragmentName = "Wallet";
-                        fragment = new WalletFragment();
-                        position = 2;
-                        break; */
 
                     case R.id.offer_place_fragment:
                         fragmentName = "Offer Place";
@@ -197,7 +180,6 @@ public class BirincilActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-            ParkSepeti.animate(this);
         }
     }
 }
