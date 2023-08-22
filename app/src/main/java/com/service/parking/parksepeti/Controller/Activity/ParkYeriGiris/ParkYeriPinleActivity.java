@@ -73,7 +73,7 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
         ButterKnife.bind(this);
 
 
-        mActionBarName.setText("Pin Parking Spot");
+        mActionBarName.setText("Park yerini işaretle");
 
         mBackBtn.setOnClickListener(v -> {
             onBackPressed();
@@ -89,7 +89,7 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
 
                 startActivity(areaAddress,null);
             } else {
-                Toasty.error(this, "Please select parking first!").show();
+                Toasty.error(this, "Önce park yerini seçin").show();
             }
         });
 
@@ -114,31 +114,23 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
 
             count += 1;
 
-            // Creating a marker
             MarkerOptions markerOptions = new MarkerOptions();
 
-            // Setting the position for the marker
             markerOptions.position(v);
 
-            // Setting the title for the marker.
-            // This will be displayed on taping the marker
             markerOptions.title(v.latitude + " : " + v.longitude);
 
-            // Clears the previously touched position
             map.clear();
 
-            // Animating to the touched position
             map.animateCamera(CameraUpdateFactory.newLatLng(v));
 
-            // Placing a marker on the touched position
             map.addMarker(markerOptions);
 
-            Geocoder geocoder;
+            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
             List<Address> addresses = null;
-            geocoder = new Geocoder(this, Locale.getDefault());
 
             try {
-                addresses = geocoder.getFromLocation(v.latitude, v.longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+                addresses = geocoder.getFromLocation(v.latitude, v.longitude, 1);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -157,10 +149,7 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
 
             ParkSepeti.currentLocationpin.setPinloc(pinloc);
 
-            Log.d("XYZ Location : ", v.latitude + " " + v.longitude);
-            Log.d("XYZ Address : ", addresses.toString());
-
-            Toasty.success(this, "Parking Selected").show();
+            Toasty.success(this, "Konum belirlendi.").show();
 
         });
 
@@ -195,7 +184,6 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
         mLocationPermissionGranted = false;
         switch (requestCode) {
             case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mLocationPermissionGranted = true;
@@ -225,31 +213,22 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
     }
 
     private void getDeviceLocation() {
-        /*
-         * Get the best and most recent location of the device, which may be null in rare
-         * cases when a location is not available.
-         */
         try {
             if (mLocationPermissionGranted) {
                 Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
                 locationResult.addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Set the map's camera position to the current location of the device.
                         mLastKnownLocation = task.getResult();
                         map.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                 new LatLng(mLastKnownLocation.getLatitude(),
                                         mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
 
                     } else {
-                        Log.d("XYZ", "Current location is null. Using defaults.");
-                        Log.e("XYZ", "Exception: %s", task.getException());
-                        //map.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
                         map.getUiSettings().setMyLocationButtonEnabled(false);
                     }
                 });
             }
         } catch(SecurityException e)  {
-            Log.e("Exception: %s", e.getMessage());
         }
     }
 

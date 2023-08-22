@@ -88,20 +88,20 @@ public class BirincilActivity extends AppCompatActivity {
         Fragment fragment = null;
                 switch (item.getItemId()) {
                     case R.id.places_fragment:
-                        fragmentName = "Places";
+                        fragmentName = "Müsait Park Yerleri";
                         fragment = new GoogleKayıtlıYerlerFragment();
                         position = 0;
                         break;
 
                     case R.id.bookings_fragment:
-                        fragmentName = "Bookings";
+                        fragmentName = "Rezerve Ettiklerim";
                         fragment = new ReserveEdilenFragment();
                         position = 1;
                         break;
 
 
                     case R.id.offer_place_fragment:
-                        fragmentName = "Offer Place";
+                        fragmentName = "Kiraladıklarım";
                         fragment = new ParkYeriKaydetFragment();
                         position = 2;
                         break;
