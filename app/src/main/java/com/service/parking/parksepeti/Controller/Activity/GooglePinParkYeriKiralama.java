@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.parking.parksepeti.Model.LocationPin;
-import com.service.parking.parksepeti.Model.ParkingBooking;
 import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
@@ -58,12 +57,6 @@ public class GooglePinParkYeriKiralama extends AppCompatActivity {
     RelativeLayout layer0;
 
     List<Map<String, Object>> slotsData;
-
-    //public static TextView AmountToPay;
-    //public static RelativeLayout AmountToPayLayout;
-
-    public static String noOfSlotsToBeBooked;
-    public static ParkingBooking parkingBooking = new ParkingBooking();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

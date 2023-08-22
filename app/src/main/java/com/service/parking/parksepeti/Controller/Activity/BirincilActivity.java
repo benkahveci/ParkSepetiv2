@@ -138,9 +138,7 @@ public class BirincilActivity extends AppCompatActivity {
 
         navigationView.setNavigationItemSelectedListener(mOnNavigationDrawerItemSelectedListener);
 
-        mProfileView.setOnClickListener(v1 -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-        });
+        mProfileView.setOnClickListener(v1 -> drawerLayout.openDrawer(GravityCompat.START));
 
     }
 

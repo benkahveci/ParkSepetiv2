@@ -75,9 +75,7 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
 
         mActionBarName.setText("Park yerini işaretle");
 
-        mBackBtn.setOnClickListener(v -> {
-            onBackPressed();
-        });
+        mBackBtn.setOnClickListener(v -> onBackPressed());
 
         mNextBtn.setOnClickListener(v -> {
 
@@ -182,12 +180,10 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
                                            @NonNull String permissions[],
                                            @NonNull int[] grantResults) {
         mLocationPermissionGranted = false;
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    mLocationPermissionGranted = true;
-                }
+        if (requestCode == PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                mLocationPermissionGranted = true;
             }
         }
         updateLocationUI();
@@ -228,7 +224,7 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
                     }
                 });
             }
-        } catch(SecurityException e)  {
+        } catch(SecurityException ignored)  {
         }
     }
 

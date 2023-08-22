@@ -6,10 +6,6 @@ public class UserProfile {
     public String Email = " ";
     public String Mobile_no;
     public String Name;
-    public String Total_spots;
-    public String Spots_used;
-    public String Balance; //Bunu çıkaralım.
-    public String Earnings; //Bunu çıkaralım.
 
     public UserProfile(String email, String mobile_no, String name) {
         Email = email;
@@ -23,15 +19,5 @@ public class UserProfile {
     }
 
     public UserProfile() {
-    }
-
-    public UserProfile(String email, String mobile_no, String name, String total_spots, String spots_used, String balance, String earnings) {
-        Email = email;
-        Mobile_no = mobile_no;
-        Name = name;
-        Total_spots = total_spots;
-        Spots_used = spots_used;
-        Balance = balance;
-        Earnings = earnings;
     }
 }

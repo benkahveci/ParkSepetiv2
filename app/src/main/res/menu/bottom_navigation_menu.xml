@@ -13,12 +13,6 @@
         android:title="Bookings"
         />
 
-    <!--
-    <item
-        android:id="@+id/wallet_fragment"
-        android:icon="@drawable/icon_wallet"
-        android:title="E-Wallet" -->
-        />
 
     <item
         android:id="@+id/offer_place_fragment"
@@ -26,12 +20,6 @@
         android:title="Offer Place"
         />
 
-    <!--
 
-    <item
-        android:id="@+id/packages_fragment"
-        android:icon="@drawable/packages"
-        android:title="Packages"
-        /> -->
 
 </menu>

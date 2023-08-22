@@ -120,8 +120,6 @@ public class NetworkServices {
                     UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
                     NetworkServices.userProfile = userProfile;
 
-                    Log.d("XYZ ABC",NetworkServices.userProfile.Email + " " + NetworkServices.userProfile.Mobile_no + " " + NetworkServices.userProfile.Name);
-                    Log.d("XYZ ABC",NetworkServices.userProfile.Total_spots + " " + NetworkServices.userProfile.Balance + " " + NetworkServices.userProfile.Earnings);
                 }
 
                 @Override
@@ -183,11 +181,6 @@ public class NetworkServices {
             mGlobalLocationPinRef.child(area).child(pinkey).setValue(locationpin, (databaseError, databaseReference) -> {
                 if (databaseError == null) {
                     mUserLocationPinRef.child(pinkey).setValue(locationpin);
-
-                    int Spots_used = Integer.parseInt(userProfile.Spots_used) + Integer.parseInt(locationPin.getNumberofspot());
-                    Map<String,Object> spotsUpdate = new HashMap<>();
-                    spotsUpdate.put("Spots_used",""+Spots_used);
-                    ProfileData.mProfileReference.updateChildren(spotsUpdate);
 
                 }
             });

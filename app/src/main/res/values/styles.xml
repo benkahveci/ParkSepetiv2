@@ -10,25 +10,12 @@
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
-    <style name="ShowActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-    </style>
-
     <style name="DialogAnimations" />
     <style name="DialogAnimations.SmileWindow">
         <item name="android:windowEnterAnimation">@anim/unzoom_in</item>
         <item name="android:windowExitAnimation">@anim/unzoom_out</item>
     </style>
 
-    <style name="PackageBuyAnimation" />
-    <style name="PackageBuyAnimation.SmileWindow">
-        <item name="android:windowEnterAnimation">@anim/fade_in</item>
-        <item name="android:windowExitAnimation">@anim/fade_out</item>
-    </style>
 
     <style name="CodeEditText">
         <item name="android:layout_width">0.0dip</item>
@@ -55,12 +42,6 @@
         <item name="android:src">@drawable/icon_add</item>
     </style>
 
-    <style name="FinishButton">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_width">64sp</item>
-        <item name="android:layout_height">64sp</item>
-        <item name="android:src">@drawable/ic_check_black_24dp</item>
-    </style>
 
     <style name="SearchButton">
         <item name="android:layout_gravity">center</item>
@@ -69,15 +50,5 @@
         <item name="android:src">@drawable/icon_search</item>
     </style>
 
-    <style name="BuyButton">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_width">64sp</item>
-        <item name="android:layout_height">64sp</item>
-        <item name="android:src">@drawable/buy</item>
-    </style>
-
-    <style name="FOL_Theme_SnackbarWrapper" parent="@style/Theme.AppCompat">
-        <!--Insert customization here-->
-    </style>
 
 </resources>

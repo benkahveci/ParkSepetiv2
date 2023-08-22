@@ -58,8 +58,6 @@ public class AdresSecActivity extends AppCompatActivity {
     Boolean cameraFeature = false;
     Boolean disabledAccessFeature = false;
 
-    String description = "boşş";
-    String price = "25";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +73,9 @@ public class AdresSecActivity extends AppCompatActivity {
         mAddress.setText(address);
         mPinCode.setText(pincode);
 
-        mActionBarName.setText("Area and Address");
+        mActionBarName.setText("Adres Seçimi");
 
-        mBackBtn.setOnClickListener(v -> {
-            onBackPressed();
-        });
+        mBackBtn.setOnClickListener(v -> onBackPressed());
 
         mNextBtn.setOnClickListener(v -> {
             String mobileno = mMobileNo.getEditableText().toString();
@@ -88,13 +84,13 @@ public class AdresSecActivity extends AppCompatActivity {
             pincode = mPinCode.getEditableText().toString();
 
             if (mobileno.isEmpty() || area.isEmpty() || address.isEmpty() || pincode.isEmpty()) {
-                Toasty.error(this,"Please fill the information correctly").show();
+                Toasty.error(this,"Bilgileri Düzgün Girelim").show();
             } else {
                 Map<String,Boolean> features = new HashMap<>();
-                features.put("Covered",coveredFeature);
-                features.put("Security Camera",cameraFeature);
-                features.put("Onsite Staff",staffFeature);
-                features.put("Disabled Access",disabledAccessFeature);
+                features.put("Kapalı",coveredFeature);
+                features.put("Kamera",cameraFeature);
+                features.put("Güvenlik",staffFeature);
+                features.put("Engelli",disabledAccessFeature);
 
                 LocationPin locationPin = ParkSepeti.currentLocationpin;
 

@@ -76,7 +76,7 @@ public class SpinnerDialog {
         listView.setAdapter(adapter);
         adb.setView(v);
         alertDialog = adb.create();
-        alertDialog.getWindow().getAttributes().windowAnimations = style;//R.style.DialogAnimations_SmileWindow;
+        alertDialog.getWindow().getAttributes().windowAnimations = style;
 
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
             TextView t = view.findViewById(R.id.text1);

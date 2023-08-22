@@ -7,9 +7,7 @@ public class LocationConstants {
     public static final String type = "type";
     public static final String visibility = "visibility";
     public static final String numberofspot = "numberofspot";
-    public static final String pinkey = "pinkey";
     public static final String features = "features";
-    public static final String photos = "photos";
     public static final String pinloc  = "pinloc";
     public static final String address = "address";
     public static final String mobile = "mobile";

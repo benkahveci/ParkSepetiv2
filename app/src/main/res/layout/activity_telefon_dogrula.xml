@@ -72,7 +72,6 @@
                             android:enabled="false"
                             android:layout_marginTop="10sp"
                             android:layout_marginRight="5sp"
-                            android:hint="@string/activity_phone_verify_ext"
                             android:inputType="phone"
                             android:padding="9sp"
                             android:text="+90"
@@ -84,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10sp"
                             android:background="@drawable/button_background_transparent"
-                            android:hint="@string/activity_phone_verify_your_phone_number"
+                            android:hint="Cep Telefonu"
                             android:inputType="phone"
                             android:maxLines="1"
                             android:padding="9sp" />
