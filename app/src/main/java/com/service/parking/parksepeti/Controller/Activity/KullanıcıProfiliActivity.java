@@ -2,23 +2,15 @@ package com.service.parking.parksepeti.Controller.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
-import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class KullanıcıProfiliActivity extends Activity {
 
@@ -36,14 +28,9 @@ public class KullanıcıProfiliActivity extends Activity {
 
     @BindView(R.id.myProfile_back_btn)
     ImageButton mProfileBackbtn;
-
-    @BindView(R.id.myProfile_image_iv)
-    CircleImageView myProfileImageIv;
-
     @BindView(R.id.myProfile_save_btn)
     Button myProfileSaveBtn;
 
-    //PackageConstants
     private Boolean isEditEnable = true;
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
     Boolean fromLogin;
@@ -51,18 +38,15 @@ public class KullanıcıProfiliActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_kullanici_profili);
         ButterKnife.bind(this);
 
 
         NetworkServices.ProfileData.setData(mProfileName, mProfileEmail, mProfileMobileNo);
         NetworkServices.ProfileData.getProfileData();
 
-        Log.d("Name Mobile_No : ", ParkSepeti.Person_name + ParkSepeti.Mobile_no);
-
         mProfileEditbtn.setOnClickListener(v -> {
 
-            Log.d("Name : ", mProfileName.getText().toString());
             UI_Update();
 
         });
@@ -84,16 +68,6 @@ public class KullanıcıProfiliActivity extends Activity {
             UI_Update();
         });
 
-    }
-
-    public void checkPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.canDrawOverlays(this)) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                        Uri.parse("package:" + getPackageName()));
-                startActivityForResult(intent, ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE);
-            }
-        }
     }
 
     void UI_Update() {

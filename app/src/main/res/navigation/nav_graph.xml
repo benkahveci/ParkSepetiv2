@@ -6,38 +6,29 @@
 
     <activity
         android:id="@+id/mobileVerifyActivity"
-        android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity"
+        android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.TelefonDogrulaActivity"
         android:label="activity_mobile_verify"
         tools:layout="@layout/activity_telefon_dogrula" />
     <activity
         android:id="@+id/otpVerifyActivity"
-        android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.OtpVerifyActivity"
+        android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.OtpDogrulaActivity"
         android:label="activity_otp_verify"
         tools:layout="@layout/activity_otp_dogrula" />
     <activity
         android:id="@+id/profileActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.KullanıcıProfiliActivity"
         android:label="activity_profile"
-        tools:layout="@layout/activity_profile" />
+        tools:layout="@layout/activity_kullanici_profili" />
     <activity
         android:id="@+id/startActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.BirincilActivity"
         android:label="activity_start"
-        tools:layout="@layout/activity_start" />
-    <fragment
-        android:id="@+id/bookingFragment"
-        android:name="com.service.parking.parksepeti.Controller.Fragment.ReserveEdilenFragment"
-        android:label="fragment_booking"
-        tools:layout="@layout/fragment_booking" >
-        <action
-            android:id="@+id/action_bookingFragment_to_startActivity"
-            app:destination="@id/startActivity" />
-    </fragment>
+        tools:layout="@layout/activity_birincil" />
     <fragment
         android:id="@+id/offerPlaceFragment"
         android:name="com.service.parking.parksepeti.Controller.Fragment.ParkYeriKaydetFragment"
         android:label="fragment_offer_place"
-        tools:layout="@layout/fragment_offer_place" >
+        tools:layout="@layout/fragment_harita" >
         <action
             android:id="@+id/action_offerPlaceFragment_to_startActivity"
             app:destination="@id/startActivity" />
@@ -46,7 +37,7 @@
         android:id="@+id/placesFragment"
         android:name="com.service.parking.parksepeti.Controller.Fragment.GoogleKayıtlıYerlerFragment"
         android:label="fragment_places"
-        tools:layout="@layout/fragment_places" >
+        tools:layout="@layout/fragment_park_yeri_kaydet" >
         <action
             android:id="@+id/action_placesFragment_to_startActivity"
             app:destination="@id/startActivity" />
@@ -55,7 +46,7 @@
         android:id="@+id/parkingPinActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.ParkYeriPinleActivity"
         android:label="activity_parking_pin"
-        tools:layout="@layout/activity_parking_pin" />
+        tools:layout="@layout/activity_parkyeri_pinle" />
     <activity
         android:id="@+id/areaAndAddressActivity"
         android:name="com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.AdresSecActivity"

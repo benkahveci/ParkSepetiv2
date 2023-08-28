@@ -1,29 +1,13 @@
 package com.service.parking.parksepeti.Controller.Fragment;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.service.parking.parksepeti.Controller.Activity.ParkYeriGiris.ParkYeriPinleActivity;
-import com.service.parking.parksepeti.Controller.Adapters.ParkYerlerimAdapter;
-import com.service.parking.parksepeti.Model.LocationPin;
 import com.service.parking.parksepeti.R;
-import com.service.parking.parksepeti.Services.NetworkServices;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import at.markushi.ui.CircleButton;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,63 +15,21 @@ import butterknife.ButterKnife;
 
 public class ParkYeriKaydetFragment extends Fragment {
 
-    @BindView(R.id.mySpotRecyclerView)
-    RecyclerView mMySpotsRecyclerView;
-
-    ParkYerlerimAdapter mySpotsAdapter;
-    List<LocationPin> locationPinList;
-
     @BindView(R.id.add_parking_btn)
     CircleButton mAddParkingBtn;
 
-    @BindView(R.id.floating_add_parking_btn)
-    FloatingActionButton mFloatingAddParkingBtn;
-
     public ParkYeriKaydetFragment() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_offer_place, container, false);
+        View view = inflater.inflate(R.layout.fragment_harita, container, false);
         ButterKnife.bind(this,view);
 
         mAddParkingBtn.setOnClickListener(v ->{
             Intent addPin = new Intent(getContext(), ParkYeriPinleActivity.class);
             startActivity(addPin,null);
-        });
-
-        mFloatingAddParkingBtn.setOnClickListener(v -> {
-            Intent addPin = new Intent(getContext(), ParkYeriPinleActivity.class);
-            startActivity(addPin,null);
-        });
-
-        locationPinList = new ArrayList<>();
-        mySpotsAdapter = new ParkYerlerimAdapter(locationPinList,getContext());
-
-        RecyclerView.LayoutManager mLayoutmanager = new LinearLayoutManager(getContext());
-        mMySpotsRecyclerView.setLayoutManager(mLayoutmanager);
-        mMySpotsRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mMySpotsRecyclerView.setAdapter(mySpotsAdapter);
-
-        NetworkServices.ParkingPin.getMyLocationPins(locationPinList,mySpotsAdapter);
-
-        mMySpotsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                    mFloatingAddParkingBtn.show();
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                if (dy > 0 || dy < 0 && mFloatingAddParkingBtn.isShown())
-                    mFloatingAddParkingBtn.hide();
-                super.onScrolled(recyclerView, dx, dy);
-            }
         });
 
         return view;

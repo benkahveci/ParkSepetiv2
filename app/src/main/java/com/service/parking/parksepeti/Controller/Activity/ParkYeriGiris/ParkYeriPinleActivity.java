@@ -25,7 +25,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.Task;
 import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
-import com.service.parking.parksepeti.Utils.LocationConstants;
+import com.service.parking.parksepeti.Utils.KonumConstant;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -45,16 +45,16 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
     private static final float DEFAULT_ZOOM = 12;
 
     @BindView(R.id.action_bar_name)
-    TextView mActionBarName;
+    TextView mActionAdı;
 
     Boolean mLocationPermissionGranted = false;
     FusedLocationProviderClient mFusedLocationProviderClient;
 
     @BindView(R.id.back_btn)
-    CircleImageView mBackBtn;
+    CircleImageView mGeriBtn;
 
     @BindView(R.id.next_btn)
-    CircleButton mNextBtn;
+    CircleButton mIleriBtn;
 
     SupportMapFragment supportMapFragment;
 
@@ -69,21 +69,21 @@ public class ParkYeriPinleActivity extends AppCompatActivity implements OnMapRea
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parking_pin);
+        setContentView(R.layout.activity_parkyeri_pinle);
         ButterKnife.bind(this);
 
 
-        mActionBarName.setText("Park yerini işaretle");
+        mActionAdı.setText("Park yerini işaretle");
 
-        mBackBtn.setOnClickListener(v -> onBackPressed());
+        mGeriBtn.setOnClickListener(v -> onBackPressed());
 
-        mNextBtn.setOnClickListener(v -> {
+        mIleriBtn.setOnClickListener(v -> {
 
             if (count > 0) {
                 Intent areaAddress = new Intent(ParkYeriPinleActivity.this, AdresSecActivity.class);
-                areaAddress.putExtra(LocationConstants.address,address);
-                areaAddress.putExtra(LocationConstants.area,area);
-                areaAddress.putExtra(LocationConstants.pincode,pincode);
+                areaAddress.putExtra(KonumConstant.address,address);
+                areaAddress.putExtra(KonumConstant.area,area);
+                areaAddress.putExtra(KonumConstant.pincode,pincode);
 
                 startActivity(areaAddress,null);
             } else {

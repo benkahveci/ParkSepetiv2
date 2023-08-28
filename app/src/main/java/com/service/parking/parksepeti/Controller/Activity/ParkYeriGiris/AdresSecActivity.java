@@ -7,11 +7,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.service.parking.parksepeti.Controller.Activity.BirincilActivity;
-import com.service.parking.parksepeti.Model.LocationPin;
+import com.service.parking.parksepeti.Model.KonumPini;
 import com.service.parking.parksepeti.ParkSepeti;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
-import com.service.parking.parksepeti.Utils.LocationConstants;
+import com.service.parking.parksepeti.Utils.KonumConstant;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,37 +26,31 @@ import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 public class AdresSecActivity extends AppCompatActivity {
 
     @BindView(R.id.action_bar_name)
-    TextView mActionBarName;
+    TextView mActionAdı;
 
     @BindView(R.id.back_btn)
-    CircleImageView mBackBtn;
+    CircleImageView mGeriBtn;
 
     @BindView(R.id.next_btn)
-    CircleButton mNextBtn;
+    CircleButton mIleriBtn;
 
     @BindView(R.id.area_edit_text)
-    ExtendedEditText mArea;
+    ExtendedEditText mBolge;
 
     @BindView(R.id.address_edit_text)
-    ExtendedEditText mAddress;
+    ExtendedEditText mAdres;
 
     @BindView(R.id.mobileno_edit_text)
-    ExtendedEditText mMobileNo;
+    ExtendedEditText mCepNo;
 
     @BindView(R.id.pincode_edit_text)
-    ExtendedEditText mPinCode;
+    ExtendedEditText mPinKodu;
 
     private String area;
     private String address;
     private String pincode;
 
-    String parkingType = "carpool";
-    String noOFSpots = "25";
-
-    Boolean coveredFeature = false;
-    Boolean staffFeature = false;
-    Boolean cameraFeature = false;
-    Boolean disabledAccessFeature = false;
+    //String parkingType = "carpool";
 
 
     @Override
@@ -65,52 +59,41 @@ public class AdresSecActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adres_sec);
         ButterKnife.bind(this);
 
-        area = getIntent().getStringExtra(LocationConstants.area);
-        address = getIntent().getStringExtra(LocationConstants.address);
-        pincode = getIntent().getStringExtra(LocationConstants.pincode);
+        area = getIntent().getStringExtra(KonumConstant.area);
+        address = getIntent().getStringExtra(KonumConstant.address);
+        pincode = getIntent().getStringExtra(KonumConstant.pincode);
 
-        mArea.setText(area);
-        mAddress.setText(address);
-        mPinCode.setText(pincode);
+        mBolge.setText(area);
+        mAdres.setText(address);
+        mPinKodu.setText(pincode);
 
-        mActionBarName.setText("Adres Seçimi");
+        mActionAdı.setText("Adres Seçimi");
 
-        mBackBtn.setOnClickListener(v -> onBackPressed());
+        mGeriBtn.setOnClickListener(v -> onBackPressed());
 
-        mNextBtn.setOnClickListener(v -> {
-            String mobileno = mMobileNo.getEditableText().toString();
-            area = mArea.getEditableText().toString();
-            address = mAddress.getEditableText().toString();
-            pincode = mPinCode.getEditableText().toString();
+        mIleriBtn.setOnClickListener(v -> {
+            String mobileno = mCepNo.getEditableText().toString();
+            area = mBolge.getEditableText().toString();
+            address = mAdres.getEditableText().toString();
+            pincode = mPinKodu.getEditableText().toString();
 
             if (mobileno.isEmpty() || area.isEmpty() || address.isEmpty() || pincode.isEmpty()) {
                 Toasty.error(this,"Bilgileri Düzgün Girelim").show();
             } else {
-                Map<String,Boolean> features = new HashMap<>();
-                features.put("Kapalı",coveredFeature);
-                features.put("Kamera",cameraFeature);
-                features.put("Güvenlik",staffFeature);
-                features.put("Engelli",disabledAccessFeature);
+                KonumPini konumPini = ParkSepeti.currentLocationpin;
 
-                LocationPin locationPin = ParkSepeti.currentLocationpin;
+                konumPini.setAddress(address + " " + pincode);
+                konumPini.setArea(area);
+                konumPini.setMobile(mobileno);
 
-                locationPin.setFeatures(features);
-                locationPin.setNumberofspot(noOFSpots);
-                locationPin.setType(parkingType);
 
-                locationPin.setAddress(address + " " + pincode);
-                locationPin.setArea(area);
-                locationPin.setMobile(mobileno);
-                locationPin.setPrice("25");
-                locationPin.setDescription("null");
-
-                NetworkServices.ParkingPin.setLocationPin(locationPin);
-                int position = 2;
+                NetworkServices.ParkingPin.setLocationPin(konumPini);
+                int position = 1;
                 Intent toMain = new Intent(this, BirincilActivity.class);
                 toMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 toMain.putExtra("position",position);
                 startActivity(toMain,null);
-                mNextBtn.setEnabled(true);
+                mIleriBtn.setEnabled(true);
             }
         });
 

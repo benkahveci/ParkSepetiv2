@@ -3,7 +3,6 @@ package com.service.parking.parksepeti.Controller.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,10 +14,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.MobileVerifyActivity;
+import com.service.parking.parksepeti.Controller.Activity.KullanıcıKaydet.TelefonDogrulaActivity;
 import com.service.parking.parksepeti.Controller.Fragment.GoogleKayıtlıYerlerFragment;
 import com.service.parking.parksepeti.Controller.Fragment.ParkYeriKaydetFragment;
-import com.service.parking.parksepeti.Controller.Fragment.ReserveEdilenFragment;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
 
@@ -27,9 +25,6 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BirincilActivity extends AppCompatActivity {
-
-    @BindView(R.id.framelayout)
-    FrameLayout fragmentFrame;
 
     @BindView(R.id.bottomNavView_Bar)
     BottomNavigationViewEx navigation;
@@ -53,8 +48,6 @@ public class BirincilActivity extends AppCompatActivity {
 
     int position = 0;
 
-
-    //Profil navigasyonu -> Bilgiler(KullanıcıProfiliActivity ve exit işlermleri için
     private NavigationView.OnNavigationItemSelectedListener mOnNavigationDrawerItemSelectedListener
             = menuItem -> {
         switch (menuItem.getItemId()) {
@@ -93,17 +86,11 @@ public class BirincilActivity extends AppCompatActivity {
                         position = 0;
                         break;
 
-                    case R.id.bookings_fragment:
-                        fragmentName = "Rezerve Ettiklerim";
-                        fragment = new ReserveEdilenFragment();
-                        position = 1;
-                        break;
-
 
                     case R.id.offer_place_fragment:
-                        fragmentName = "Kiraladıklarım";
+                        fragmentName = "Park Yeri Buldum";
                         fragment = new ParkYeriKaydetFragment();
-                        position = 2;
+                        position = 1;
                         break;
                 }
                 return loadFragment(fragment,position);
@@ -112,7 +99,7 @@ public class BirincilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_birincil);
         ButterKnife.bind(this);
 
         View headerView = navigationView.getHeaderView(0);
@@ -126,7 +113,6 @@ public class BirincilActivity extends AppCompatActivity {
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
             NetworkServices.ProfileData.setData(mName,mEmail,null);
         }
-
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.enableAnimation(true);
@@ -143,7 +129,6 @@ public class BirincilActivity extends AppCompatActivity {
     }
 
     public boolean loadFragment(Fragment fragment,int position) {
-        //switching fragment
         if (fragment != null) {
             mFragmentName.setText(fragmentName);
             navigation.enableShiftingMode(position,true);
@@ -169,7 +154,7 @@ public class BirincilActivity extends AppCompatActivity {
     }
 
     void gotToLogin() {
-        startActivity(new Intent(this, MobileVerifyActivity.class));
+        startActivity(new Intent(this, TelefonDogrulaActivity.class));
         finish();
     }
 

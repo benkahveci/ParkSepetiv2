@@ -24,32 +24,21 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.service.parking.parksepeti.Controller.Activity.GooglePinParkYeriKiralama;
-import com.service.parking.parksepeti.Model.LocationPin;
+import com.service.parking.parksepeti.Model.KonumPini;
 import com.service.parking.parksepeti.R;
 import com.service.parking.parksepeti.Services.NetworkServices;
 import com.service.parking.parksepeti.ParkSepeti;
-import com.service.parking.parksepeti.View.SearchableSpinner.SpinnerDialog;
-
 import java.util.Objects;
 
-import at.markushi.ui.CircleButton;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import es.dmoral.toasty.Toasty;
-
-import static com.service.parking.parksepeti.Services.NetworkServices.ParkingPin.parkingAreas;
 
 public class GoogleKayıtlıYerlerFragment extends Fragment {
-
-    @BindView(R.id.searchBtn)
-    CircleButton mSearchBtn;
 
     @BindView(R.id.areaNameField)
     TextView mAreaNameField;
 
-    SpinnerDialog spinnerDialog;
     MapView mMapView;
     private GoogleMap googleMap;
 
@@ -64,7 +53,7 @@ public class GoogleKayıtlıYerlerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_places, container, false);
+        View view = inflater.inflate(R.layout.fragment_park_yeri_kaydet, container, false);
         ButterKnife.bind(this,view);
 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
@@ -73,31 +62,12 @@ public class GoogleKayıtlıYerlerFragment extends Fragment {
         mMapView.onCreate(savedInstanceState);
         setupMapView();
 
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            spinnerDialog=new SpinnerDialog(getActivity(),parkingAreas,"Alan Tara",R.style.DialogAnimations_SmileWindow,"Close");
-            spinnerDialog.setCancellable(true); // for cancellable
-            spinnerDialog.setShowKeyboard(false);// for open keyboard by default
-        }
-
-        spinnerDialog.bindOnSpinerListener((item, position) -> {
-            NetworkServices.ParkingPin.getParkingsOfArea(item,googleMap,true);
-            Toasty.info(getContext(), item + "  " + position).show();
-                mAreaNameField.setText(item);
-        });
-
-        mSearchBtn.setOnClickListener(v -> spinnerDialog.showSpinerDialog());
-
-        mSearchBtn.setOnLongClickListener(v -> {
-
-            return false;
-        });
-
         return view;
     }
 
     void setupMapView() {
 
-        mMapView.onResume(); // needed to get the map to display immediately
+        mMapView.onResume();
 
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
@@ -116,9 +86,8 @@ public class GoogleKayıtlıYerlerFragment extends Fragment {
 
             googleMap.setOnMarkerClickListener(marker -> {
 
-                LocationPin pin = (LocationPin) marker.getTag();
-                ParkSepeti.selectedLocationPin = pin;
-                Log.d("RANDOM TAG",pin.getAddress()+" "+pin.getPrice());
+                KonumPini pin = (KonumPini) marker.getTag();
+                ParkSepeti.selectedKonumPini = pin;
 
                 startActivity(new Intent(getContext(), GooglePinParkYeriKiralama.class));
 
@@ -192,9 +161,6 @@ public class GoogleKayıtlıYerlerFragment extends Fragment {
                         }
 
                     } else {
-                        Log.d("XYZ", "Current location is null. Using defaults.");
-                        Log.e("XYZ", "Exception: %s", task.getException());
-                        //map.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
                         googleMap.getUiSettings().setMyLocationButtonEnabled(false);
                     }
                 });
@@ -214,7 +180,6 @@ public class GoogleKayıtlıYerlerFragment extends Fragment {
     };
 
     public GoogleKayıtlıYerlerFragment() {
-        // Required empty public constructor
     }
 
 }

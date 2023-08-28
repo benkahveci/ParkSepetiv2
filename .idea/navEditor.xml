@@ -20,27 +20,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="bookingFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="478" />
-                            <option name="y" value="1524" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_bookingFragment_to_startActivity">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="mobileVerifyActivity">
                     <value>
                       <LayoutPositions>
@@ -58,8 +37,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="466" />
-                            <option name="y" value="1112" />
+                            <option name="x" value="457" />
+                            <option name="y" value="1261" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -103,8 +82,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="468" />
-                            <option name="y" value="724" />
+                            <option name="x" value="444" />
+                            <option name="y" value="824" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -115,18 +94,6 @@
                               </value>
                             </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="priceAndAdditionalDetailsActivity">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="240" />
-                            <option name="y" value="368" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
