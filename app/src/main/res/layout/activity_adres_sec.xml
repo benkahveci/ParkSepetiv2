@@ -17,9 +17,8 @@
         android:layout_marginStart="30sp"
         android:layout_marginEnd="30sp"
         app:panelBackgroundColor="@color/colorWhite"
-        app:labelText="Area"
-        app:hasClearButton="false"
-        app:helperText="This area will be used to filter your parking">
+        app:labelText="Muhit"
+        app:hasClearButton="false">
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
             android:id="@+id/area_edit_text"
@@ -39,9 +38,8 @@
         android:layout_marginStart="30sp"
         android:layout_marginEnd="30sp"
         app:panelBackgroundColor="@color/colorWhite"
-        app:labelText="Address"
-        app:hasClearButton="true"
-        app:helperText="Check Your Address properly before submitting">
+        app:labelText="Açık Adres"
+        app:hasClearButton="true">
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
             android:id="@+id/address_edit_text"
@@ -60,9 +58,8 @@
         android:layout_marginStart="30sp"
         android:layout_marginEnd="30sp"
         app:panelBackgroundColor="@color/colorWhite"
-        app:labelText="Pincode"
-        app:hasClearButton="false"
-        app:helperText="">
+        app:labelText="Posta Kodu"
+        app:hasClearButton="false">
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
             android:id="@+id/pincode_edit_text"
@@ -82,10 +79,9 @@
         android:layout_marginStart="30sp"
         android:layout_marginEnd="30sp"
         app:panelBackgroundColor="@color/colorWhite"
-        app:labelText="Mobile No"
+        app:labelText="Cep Telefonu"
         app:hasClearButton="true"
-        app:maxCharacters="10"
-        app:helperText="To help the customer to reach the placeholder">
+        app:maxCharacters="10">
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
             android:id="@+id/mobileno_edit_text"
